@@ -1,0 +1,59 @@
+{
+  "name": "webvr-helper",
+  "version": "1.0.0",
+  "description": "A three.js helper library to check and run VR sessions on web with a stereo-effect-view backup",
+  "main": "build/webvrhelper.min.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axaq/webvr-helper"
+  },
+  "author": "Hakan Karlidag (https://twitter.com/axaq) (https://github.com/axaq)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axaq/webvr-helper/issues"
+  },
+  "homepage": "https://github.com/axaq/webvr-helper",
+  "keywords": [
+    "threejs",
+    "webvr",
+    "webxr",
+    "stereoeffect",
+    "library",
+    "es6"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-preset-minify": "^0.5.0",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "prettier-webpack-plugin": "^1.2.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.0",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  },
+  "dependencies": {
+    "three": "^0.106.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
+      "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/bower_components/"
+    ]
+  }
+}
