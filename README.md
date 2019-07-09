@@ -19,7 +19,7 @@ The availability check is done in the following order
 ## Usage
 
 ### npm
-```
+```js
 import WebVRHelper from 'webvr-helper';
 
 let anyVRAvailable = WebVRHelper.checkAvailabilityLoose();
@@ -28,7 +28,7 @@ WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {});
 ```
 
 ### self-host
-```
+```js
 <script src="build/webvrhelper.min.js"></script>
 
 
