@@ -1,5 +1,5 @@
 <h2>WebVR Helper</h2>
-<a href="https://travis-ci.org/axaq/webvr-helper"><img src="https://travis-ci.org/axaq/webvr-helper.svg?branch=master" /></a><a href="https://david-dm.org/axaq/webvr-helper?type=dev"><img src="https://david-dm.org/axaq/webvr-helper.svg" /></a><img src="https://api.dependabot.com/badges/status?host=github&repo=axaq/webvr-helper" />
+<a href="https://travis-ci.org/axaq/webvr-helper"><img src="https://travis-ci.org/axaq/webvr-helper.svg?branch=master" /></a> <a href="https://david-dm.org/axaq/webvr-helper?type=dev"><img src="https://david-dm.org/axaq/webvr-helper.svg" /></a> <a href="https://api.dependabot.com/badges/status?host=github&repo=axaq/webvr-helper"><img src="https://api.dependabot.com/badges/status?host=github&repo=axaq/webvr-helper" /></a> 
  
 #### A three.js helper library to check and run VR sessions on web with a stereo-effect-view backup.
 
