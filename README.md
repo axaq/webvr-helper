@@ -13,7 +13,7 @@ This library provides features to
 
 The availability check is done in the following order
 - WebXR API
-- Legacy WebVr API
+- Legacy WebVR API
 - Fallback threejs stereo-effect to simulate VR view for Cardboard-style headsets
 
 ## Usage
