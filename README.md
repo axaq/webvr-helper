@@ -22,17 +22,8 @@ The availability check is done in the following order
 ```js
 import WebVRHelper from 'webvr-helper';
 
-// Check VR availability
-console.log('Loose sync availability check', WebVRHelper.checkAvailabilityLoose());
-// Strong and async feature check
-WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {
-    if (anyVRAvailable) {
-        // setup renderer
-        WebVRHelper.postAvailabilitySetup(renderer, THREE.StereoEffect, () => {
-            console.log('VR session has changed');
-        });
-    }
-});
+let anyVRAvailable = WebVRHelper.checkAvailabilityLoose();
+WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {});
 ...
 ```
 
@@ -40,9 +31,15 @@ WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {
 ```js
 <script src="build/webvrhelper.min.js"></script>
 
-
 let WebVRHelper = window.WebVRHelper.default;
 
+let anyVRAvailable = WebVRHelper.checkAvailabilityLoose();
+WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {});
+...
+```
+
+### Example code
+```js
 let container = document.createElement('div');
 document.body.appendChild(container);
 
@@ -69,7 +66,7 @@ console.log('Loose sync availability check', WebVRHelper.checkAvailabilityLoose(
 WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {
     if (anyVRAvailable) {
         // setup renderer
-        WebVRHelper.postAvailabilitySetup(renderer, () => {
+        WebVRHelper.postAvailabilitySetup(renderer, THREE.StereoEffect, () => {
             console.log('VR session has changed');
         });
     }
