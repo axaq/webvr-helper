@@ -22,8 +22,17 @@ The availability check is done in the following order
 ```js
 import WebVRHelper from 'webvr-helper';
 
-let anyVRAvailable = WebVRHelper.checkAvailabilityLoose();
-WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {});
+// Check VR availability
+console.log('Loose sync availability check', WebVRHelper.checkAvailabilityLoose());
+// Strong and async feature check
+WebVRHelper.checkAvailabilityFull((anyVRAvailable) => {
+    if (anyVRAvailable) {
+        // setup renderer
+        WebVRHelper.postAvailabilitySetup(renderer, THREE.StereoEffect, () => {
+            console.log('VR session has changed');
+        });
+    }
+});
 ...
 ```
 

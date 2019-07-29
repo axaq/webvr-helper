@@ -95,7 +95,7 @@ var App = {
 
         if (anyVRAvailable) {
             // setup the renderer 
-            WebVRHelper.postAvailabilitySetup(this.renderer, this.onSessionChange.bind(this));
+            WebVRHelper.postAvailabilitySetup(this.renderer, THREE.StereoEffect, this.onSessionChange.bind(this));
 
             button.textContent = 'ENTER/EXIT VR';
 

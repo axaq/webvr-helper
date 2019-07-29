@@ -1,6 +1,6 @@
 {
   "name": "webvr-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A three.js helper library to check and run VR sessions on web with a stereo-effect-view backup",
   "main": "build/webvrhelper.min.js",
   "scripts": {
@@ -44,9 +44,7 @@
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4"
   },
-  "dependencies": {
-    "three": "^0.106.2"
-  },
+  "dependencies": {},
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",

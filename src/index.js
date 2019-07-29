@@ -1,5 +1,3 @@
-import { StereoEffect } from "three/examples/jsm/effects/StereoEffect";
-
 var WebVRHelper = {
     supportsXR: false,
     supportsVR: false,
@@ -36,17 +34,37 @@ var WebVRHelper = {
         this.checkXRAvailability();
     },
 
+    /**
+     * Requires three.js renderer instance and StereoEffect class.
+     * Other parameters are optional.
+     * @param {THREE.WebGLRenderer} renderer
+     * @param {THREE.StereoEffect} StereoEffectClass
+     * @param {Function} sessionChangeCallback
+     * @param {Object} samsungSkyImageOptions
+     * @param {String} referenceSpaceType
+     */
     postAvailabilitySetup: function(
         renderer,
+        StereoEffectClass,
         sessionChangeCallback,
         samsungSkyImageOptions,
         referenceSpaceType
     ) {
         if (!renderer) {
-            console.log("three.js renderer is not found. Aborting!");
+            console.error("three.js renderer is not found. Aborting!");
             return;
         }
         this.renderer = renderer;
+        this.StereoEffectClass =
+            StereoEffectClass ||
+            (window.THREE ? window.THREE.StereoEffect : null);
+        if (this.supportsStereoView && !this.StereoEffectClass) {
+            console.error(
+                "Supports Stereo View but StereoEffect class hasn't been passed. Aborting!"
+            );
+            this.supportsStereoView = false;
+            return;
+        }
 
         this.sessionChangeCallback = sessionChangeCallback;
 
@@ -310,7 +328,9 @@ var WebVRHelper = {
             this.stereoEffectActive = !this.stereoEffectActive;
             if (this.stereoEffectActive) {
                 if (!this.currentStereoEffect) {
-                    this.currentStereoEffect = new StereoEffect(this.renderer);
+                    this.currentStereoEffect = new this.StereoEffectClass(
+                        this.renderer
+                    );
                 }
                 this.currentStereoEffect.setSize(
                     window.innerWidth,
