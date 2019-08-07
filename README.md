@@ -3,6 +3,8 @@
  
 #### A three.js helper library to check and run VR sessions on web with a stereo-effect-view backup.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/axaq/webvr-helper.svg)](https://greenkeeper.io/)
+
 ## Features
 
 This library provides features to 
