@@ -18,7 +18,7 @@ var App = {
             new THREE.BoxLineGeometry(6, 6, 6, 10, 10, 10),
             new THREE.LineBasicMaterial({ color: 0x808080 })
         );
-        this.room.position.y = 3;
+        this.room.position.y = 2;
         this.scene.add(this.room);
 
         this.scene.add(new THREE.HemisphereLight(0x606060, 0x404040));
