@@ -1,6 +1,6 @@
 {
     "name": "webvr-helper",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "A three.js helper library to check and run VR sessions on web with a stereo-effect-view backup",
     "main": "build/webvrhelper.min.js",
     "scripts": {
