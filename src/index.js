@@ -17,7 +17,7 @@ var WebVRHelper = {
     checkAvailabilityLoose: function() {
         // console.log("Library checkAvailabilityLoose method fired");
         return (
-            ("xr" in navigator && "supportsSession" in navigator.xr) ||
+            ("xr" in navigator && "isSessionSupported" in navigator.xr) ||
             "getVRDisplays" in navigator ||
             (navigator.userAgent.match(
                 /SamsungBrowser|OculusBrowser|Firefox/i
@@ -237,13 +237,17 @@ var WebVRHelper = {
     },
 
     checkXRAvailability: function() {
-        if ("xr" in navigator && "supportsSession" in navigator.xr) {
+        if ("xr" in navigator && "isSessionSupported" in navigator.xr) {
             navigator.xr
-                .supportsSession("immersive-vr")
+                .isSessionSupported("immersive-vr")
                 .then(
-                    function(device) {
-                        this.supportsXR = true;
-                        this.endOfAvailabilityCheck();
+                    function(isSupported) {
+                        if (isSupported) {
+                            this.supportsXR = true;
+                            this.endOfAvailabilityCheck();
+                        } else {
+                            this.checkLegacyVRAvailability();
+                        }
                     }.bind(this)
                 )
                 .catch(
