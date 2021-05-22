@@ -54,7 +54,7 @@ scene.add(camera);
 let renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.vr.enabled = true;
+renderer.xr.enabled = true;
 container.appendChild(renderer.domElement);
 
 window.addEventListener('resize', () => {

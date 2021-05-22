@@ -70,9 +70,9 @@ var WebVRHelper = {
 
         if (
             !!referenceSpaceType &&
-            "setReferenceSpaceType" in this.renderer.vr
+            "setReferenceSpaceType" in this.renderer.xr
         ) {
-            this.renderer.vr.setReferenceSpaceType(referenceSpaceType);
+            this.renderer.xr.setReferenceSpaceType(referenceSpaceType);
         }
 
         if (!!samsungSkyImageOptions && "SamsungChangeSky" in window) {
@@ -82,7 +82,7 @@ var WebVRHelper = {
         if (this.supportsXR) {
             this.onXRSessionStarted = function(session) {
                 session.addEventListener("end", this.onXRSessionEnded);
-                this.renderer.vr.setSession(session);
+                this.renderer.xr.setSession(session);
                 this.currentXRSession = session;
                 this.sessionActive = true;
                 if (this.sessionChangeCallback) {
@@ -95,7 +95,7 @@ var WebVRHelper = {
                     "end",
                     this.onXRSessionEnded
                 );
-                this.renderer.vr.setSession(null);
+                this.renderer.xr.setSession(null);
                 this.currentXRSession = null;
                 this.sessionActive = false;
                 if (this.sessionChangeCallback) {
@@ -111,10 +111,10 @@ var WebVRHelper = {
                 this.supportsXR = false;
             }.bind(this);
         } else if (this.supportsVR) {
-            this.renderer.vr.enabled = true;
+            this.renderer.xr.enabled = true;
             this.onVRDisplayConnectDisconnect = function(display) {
                 this.currentVRDisplay = display;
-                this.renderer.vr.setDevice(this.currentVRDisplay);
+                this.renderer.xr.setDevice(this.currentVRDisplay);
                 if (this.sessionChangeCallback) {
                     this.sessionChangeCallback();
                 }
@@ -323,7 +323,7 @@ var WebVRHelper = {
             if (this.currentVRDisplay.isPresenting) {
                 this.currentVRDisplay.exitPresent();
             } else {
-                this.renderer.vr.setDevice(this.currentVRDisplay);
+                this.renderer.xr.setDevice(this.currentVRDisplay);
                 this.currentVRDisplay.requestPresent([
                     { source: this.renderer.domElement }
                 ]);
